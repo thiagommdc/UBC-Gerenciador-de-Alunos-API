@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UBC Gerenciador de Alunos API", "UBC Gerenciador de Alunos API.csproj", "{0399D01F-009D-40F8-B8EC-9A4BAF047D49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UBC Gerenciador de Alunos API", "UBC Gerenciador de Alunos API.csproj", "{0399D01F-009D-40F8-B8EC-9A4BAF047D49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "..\Tests\Tests.csproj", "{FE441945-9F58-485B-B6C6-78C8A5D8B9EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{0399D01F-009D-40F8-B8EC-9A4BAF047D49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0399D01F-009D-40F8-B8EC-9A4BAF047D49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0399D01F-009D-40F8-B8EC-9A4BAF047D49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE441945-9F58-485B-B6C6-78C8A5D8B9EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE441945-9F58-485B-B6C6-78C8A5D8B9EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE441945-9F58-485B-B6C6-78C8A5D8B9EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE441945-9F58-485B-B6C6-78C8A5D8B9EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
