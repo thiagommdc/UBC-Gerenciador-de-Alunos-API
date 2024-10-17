@@ -5,7 +5,9 @@ VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UBC Gerenciador de Alunos API", "UBC Gerenciador de Alunos API.csproj", "{0399D01F-009D-40F8-B8EC-9A4BAF047D49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "..\Tests\Tests.csproj", "{FE441945-9F58-485B-B6C6-78C8A5D8B9EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "..\Tests\Tests.csproj", "{FE441945-9F58-485B-B6C6-78C8A5D8B9EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{4462B73C-D200-4A09-89CC-927C8D491204}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

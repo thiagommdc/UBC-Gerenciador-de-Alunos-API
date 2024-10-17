@@ -3,18 +3,20 @@ using UBC_Gerenciador_de_Alunos_API.Data;
 using UBC_Gerenciador_de_Alunos_API.Models;
 using UBC_Gerenciador_de_Alunos_API.Services;
 using Tests;
+using Moq;
 
 public class StudentServiceTests
 {
-    private readonly ApplicationDbContext _context;
+    private readonly Mock<IStudentRepository> _studentRepositoryMock;
     private readonly StudentService _studentService;
-    private readonly List<Student> _student;
+    private readonly List<Student> _students;
 
     public StudentServiceTests()
     {
-        _context = TestHelper.GetInMemoryDbContext();
-        _studentService = new StudentService(_context);
-        _student = new List<Student>
+        _studentRepositoryMock = new Mock<IStudentRepository>();
+        _studentService = new StudentService(_studentRepositoryMock.Object);
+
+        _students = new List<Student>
         {
             new Student { Id = 1, Nome = "Student 1", Endereco = "Rua A", NomePai = "Pai 1", NomeMae = "Mãe 1" },
             new Student { Id = 2, Nome = "Student 2", Endereco = "Rua B", NomePai = "Pai 2", NomeMae = "Mãe 2" }
@@ -24,61 +26,51 @@ public class StudentServiceTests
     [Fact]
     public async Task GetAllStudents_ReturnsAllStudents()
     {
-        var students = _student;
-        await _context.Students.AddRangeAsync(students);
-        await _context.SaveChangesAsync();
+        _studentRepositoryMock.Setup(repo => repo.GetAllStudents()).ReturnsAsync(_students);
 
         var result = await _studentService.GetAllStudents();
 
-        Assert.Equal(_student.Count(), result.Count);
+        Assert.Equal(_students.Count, result.Count);
     }
 
     [Fact]
     public async Task GetStudentById_ReturnsCorrectStudent()
     {
-        var student = _student.First();
-        await _context.Students.AddAsync(student);
-        await _context.SaveChangesAsync();
+        var student = _students.First();
+        _studentRepositoryMock.Setup(repo => repo.GetStudentById(student.Id)).ReturnsAsync(student);
 
-        var result = await _studentService.GetStudentById(_student.First().Id);
-        Assert.Equal(_student.First().Nome, result.Nome);
+        var result = await _studentService.GetStudentById(student.Id);
+
+        Assert.Equal(student.Nome, result.Nome);
     }
 
     [Fact]
     public async Task CreateStudent_AddsStudent()
     {
-        var student = _student.First();
+        var student = _students.First();
         await _studentService.CreateStudent(student);
-        var students = await _context.Students.ToListAsync();
-        Assert.Single(students);
-        Assert.Equal(_student.First().Nome, students[0].Nome);
+
+        _studentRepositoryMock.Verify(repo => repo.CreateStudent(student), Times.Once);
     }
 
     [Fact]
     public async Task UpdateStudent_UpdatesStudent()
     {
-        var student = _student.First();
-        await _context.Students.AddAsync(student);
-        await _context.SaveChangesAsync();
-
+        var student = _students.First();
         student.Nome = "Updated Student 1";
 
         await _studentService.UpdateStudent(student);
 
-        var updatedStudent = await _context.Students.FindAsync(1);
-        Assert.Equal("Updated Student 1", updatedStudent.Nome);
+        _studentRepositoryMock.Verify(repo => repo.UpdateStudent(student), Times.Once);
     }
 
     [Fact]
     public async Task DeleteStudent_DeletesStudent()
     {
-        var student = _student.First();
-        await _context.Students.AddAsync(student);
-        await _context.SaveChangesAsync();
+        var student = _students.First();
 
-        await _studentService.DeleteStudent(_student.First().Id);
+        await _studentService.DeleteStudent(student.Id);
 
-        var students = await _context.Students.ToListAsync();
-        Assert.Empty(students);
+        _studentRepositoryMock.Verify(repo => repo.DeleteStudent(student.Id), Times.Once);
     }
 }
