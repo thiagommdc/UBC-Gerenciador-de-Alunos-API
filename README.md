@@ -1,3 +1,37 @@
+# Instruções para Rodar um Projeto .NET 6 API
+
+### Pré-requisitos:
+.NET 6 SDK: Certifique-se de que o .NET 6 SDK esteja instalado em sua máquina. 
+Editor de código: Escolha um editor de código como Visual Studio, Visual Studio Code ou outro de sua preferência.
+
+## Passos:
+
+### Obter o código:
+
+Clone o repositório: Use o comando git clone para obter uma cópia local do código.
+
+### Abrir o projeto:
+
+Visual Studio: Abra o arquivo de solução (.sln) do projeto no Visual Studio.
+Visual Studio Code: Abra a pasta do projeto no Visual Studio Code.
+
+### Restaurar os pacotes:
+
+Terminal integrado: Abra um terminal integrado no seu editor de código (geralmente Ctrl+`) e navegue até a pasta raiz do projeto.
+Executar o comando: Execute o comando dotnet restore para restaurar os pacotes NuGet necessários para o projeto.
+
+### Definir o projeto de inicialização:
+
+Visual Studio: No menu "Solution Explorer", clique com o botão direito no projeto principal e selecione "Set as Startup Project".
+Visual Studio Code: Certifique-se de que o projeto correto esteja selecionado como projeto de inicialização nas configurações do seu editor de código.
+
+### Executar o projeto:
+
+Visual Studio: Pressione F5 ou clique no botão "Start" na barra de ferramentas.
+Visual Studio Code: Use a combinação de teclas Ctrl+F5 ou procure por um comando similar para iniciar o projeto em modo de depuração.
+
+
+
 # Documentação do Projeto "UBC Gerenciador de Alunos API"
 
 ## 1. Introdução
@@ -99,26 +133,26 @@ Testabilidade: Facilita a criação de testes unitários e de integração.
 
 ## 4. Estrutura de Pastas e Arquivos
 
-# Controllers: Recebem as requisições HTTP e retornam respostas.
+Controllers: Recebem as requisições HTTP e retornam respostas.
 
-# Data: Contexto de dados, entidades e configurações do banco de dados.
+Data: Contexto de dados, entidades e configurações do banco de dados.
 
-# Dtos: Objetos de transferência de dados entre camadas.
+Dtos: Objetos de transferência de dados entre camadas.
 
-# Models: Representam as entidades de domínio.
+Models: Representam as entidades de domínio.
 
-# Services: Encapsulam a lógica de negócio e utilizam os repositórios.
+Services: Encapsulam a lógica de negócio e utilizam os repositórios.
 
-## Tests: Contêm testes unitários e de integração.
+Tests: Contêm testes unitários e de integração.
 
 ## Convenções de Nomenclatura
 Seguem padrões de nomenclatura consistentes e descritivos para classes, métodos e arquivos.
 
 # 5. Decisões de Design
 
-## Tecnologias e Frameworks: Escolha de .NET 6 e EF Core por sua robustez e integração com o ecossistema .NET.
+Tecnologias e Frameworks: Escolha de .NET 6 e EF Core por sua robustez e integração com o ecossistema .NET.
 
-## Estrutura de Pastas: Organização clara e modular das pastas para facilitar a navegação e manutenção.
+Estrutura de Pastas: Organização clara e modular das pastas para facilitar a navegação e manutenção.
 
 ## Implementação de Interfaces: Facilita a testabilidade e a substituição de implementações.
 
