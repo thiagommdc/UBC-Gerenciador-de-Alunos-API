@@ -1,6 +1,6 @@
-#Documentação do Projeto "UBC Gerenciador de Alunos API"
+# Documentação do Projeto "UBC Gerenciador de Alunos API"
 
-##1. Introdução
+## 1. Introdução
 O objetivo deste projeto é desenvolver uma aplicação web para gerenciar informações de estudantes, incluindo listagem, adição, atualização e exclusão de registros. A aplicação é composta por uma WebAPI desenvolvida com .NET 6 e um front-end desenvolvido em React, incluindo uma tela de login.
 
 Requisitos
@@ -12,7 +12,7 @@ Entity Framework: Usar o EF Core com um banco de dados em memória
 
 Autenticação: Implementar autenticação básica (JWT)
 
-##Endpoints:
+## Endpoints:
 
 GET /api/students: Retorna todos os estudantes (autenticado)
 
@@ -26,7 +26,7 @@ DELETE /api/students/{id}: Deleta um estudante (autenticado)
 
 POST /api/auth/login: Autentica um usuário e retorna um token JWT
 
-##Modelo de Dados:
+## Modelo de Dados:
 
 csharp
 
@@ -52,21 +52,21 @@ public class User
 }
 Seed Data: Popular a base de dados em memória com os dados do CSV fornecido e um usuário padrão.
 
-##2. Arquitetura Limpa
+## 2. Arquitetura Limpa
 
-###Conceitos Fundamentais
+### Conceitos Fundamentais
 Camadas: O projeto é dividido em várias camadas: entidades, casos de uso, interfaces e infraestrutura.
 
 Dependências: As camadas internas não dependem das externas, garantindo um fluxo de dependência unidirecional.
 
-###Benefícios
+### Benefícios
 Manutenibilidade: Facilita a manutenção do código.
 
 Testabilidade: A separação de responsabilidades facilita a criação de testes unitários.
 
 Independência de Tecnologias: Pode-se trocar a infraestrutura sem afetar as camadas de domínio e aplicação.
 
-###Diagrama
+### Diagrama
 
 +-----------------+
 |   Presentation   |
@@ -84,44 +84,44 @@ Independência de Tecnologias: Pode-se trocar a infraestrutura sem afetar as cam
 | Infrastructure  |
 +-----------------+
 
-##3. Padrão Repository
+## 3. Padrão Repository
 
-###Objetivo
+### Objetivo
 Abstrair o acesso aos dados, permitindo que a lógica de negócios não dependa de detalhes de implementação do mecanismo de persistência.
 
-###Implementação
+### Implementação
 Criação de interfaces de repositório e suas implementações concretas.
 
-###Benefícios
+### Benefícios
 Abstração: Desacopla o código de negócio do mecanismo de persistência.
 
 Testabilidade: Facilita a criação de testes unitários e de integração.
 
-##4. Estrutura de Pastas e Arquivos
+## 4. Estrutura de Pastas e Arquivos
 
-#Controllers: Recebem as requisições HTTP e retornam respostas.
+# Controllers: Recebem as requisições HTTP e retornam respostas.
 
-#Data: Contexto de dados, entidades e configurações do banco de dados.
+# Data: Contexto de dados, entidades e configurações do banco de dados.
 
-#Dtos: Objetos de transferência de dados entre camadas.
+# Dtos: Objetos de transferência de dados entre camadas.
 
-#Models: Representam as entidades de domínio.
+# Models: Representam as entidades de domínio.
 
-#Services: Encapsulam a lógica de negócio e utilizam os repositórios.
+# Services: Encapsulam a lógica de negócio e utilizam os repositórios.
 
-##Tests: Contêm testes unitários e de integração.
+## Tests: Contêm testes unitários e de integração.
 
-##Convenções de Nomenclatura
+## Convenções de Nomenclatura
 Seguem padrões de nomenclatura consistentes e descritivos para classes, métodos e arquivos.
 
-#5. Decisões de Design
+# 5. Decisões de Design
 
-##Tecnologias e Frameworks: Escolha de .NET 6 e EF Core por sua robustez e integração com o ecossistema .NET.
+## Tecnologias e Frameworks: Escolha de .NET 6 e EF Core por sua robustez e integração com o ecossistema .NET.
 
-##Estrutura de Pastas: Organização clara e modular das pastas para facilitar a navegação e manutenção.
+## Estrutura de Pastas: Organização clara e modular das pastas para facilitar a navegação e manutenção.
 
-##Implementação de Interfaces: Facilita a testabilidade e a substituição de implementações.
+## Implementação de Interfaces: Facilita a testabilidade e a substituição de implementações.
 
-##Tratamento de Erros: Implementação de middlewares de tratamento de erros para garantir respostas consistentes.
+## Tratamento de Erros: Implementação de middlewares de tratamento de erros para garantir respostas consistentes.
 
-##Padrões de Projeto: Uso de padrões como Repository para organizar o código.
+## Padrões de Projeto: Uso de padrões como Repository para organizar o código.
