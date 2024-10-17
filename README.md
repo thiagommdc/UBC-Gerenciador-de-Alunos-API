@@ -154,8 +154,8 @@ Tecnologias e Frameworks: Escolha de .NET 6 e EF Core por sua robustez e integra
 
 Estrutura de Pastas: Organização clara e modular das pastas para facilitar a navegação e manutenção.
 
-## Implementação de Interfaces: Facilita a testabilidade e a substituição de implementações.
+Implementação de Interfaces: Facilita a testabilidade e a substituição de implementações.
 
-## Tratamento de Erros: Implementação de middlewares de tratamento de erros para garantir respostas consistentes.
+Tratamento de Erros: Implementação de middlewares de tratamento de erros para garantir respostas consistentes.
 
-## Padrões de Projeto: Uso de padrões como Repository para organizar o código.
+Padrões de Projeto: Uso de padrões como Repository para organizar o código.
