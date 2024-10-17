@@ -38,6 +38,17 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+var CorsName = "namecors";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: CorsName, policy =>
+    {
+        policy.AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowAnyOrigin();
+    });
+});
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -47,11 +58,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors(CorsName);
 app.UseAuthentication();
-
 app.UseAuthorization();
-
 app.MapControllers();
 
 using (var scope = app.Services.CreateScope())
